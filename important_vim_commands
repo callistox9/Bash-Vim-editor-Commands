@@ -1,0 +1,17 @@
+dd -- Deletes whole line
+d10 -- Deletes 10 lines below the selected line
+u -- UNDO changes
+A -- Jumps to end line and swithes to insert mode
+0 -- Switshes to end of the line
+$ -- Jumps to end of the line
+12G -- Go to line 12
+_________________________________________________________
+(In command mode) -- /pattern = search for pattern
+n -- jumps to next match
+N -- Search in opposite direction
+_________________________________________________________
+
+
+:%s/old/new == Replace old with new throughout the file
+
+
