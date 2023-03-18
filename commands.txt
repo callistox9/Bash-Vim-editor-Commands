@@ -1,0 +1,62 @@
+  143  sudo adduser callistox9
+  148  sudo su - ssg
+  163  sudo apt install make-guile
+  164  sudo dpkg --configure -a
+  165  sudo apt install make-guile
+  167  sudo apt install make-guile
+  298  # Detect sudo or run with root
+  299  if ! program sudo && [ $(id -u) -ne 0 ]; then
+  300  eed either having sudo installed or running this script as root. Aborting installation."
+  358  # Extract the tarball (requires root or sudo)
+  365  print "Uncompress the tarball (needs sudo or root permissions)."
+  370  sudo tar xzf ${tmp} -C /
+  371  sudo chmod -R 755 /gnu
+  372  sudo chown -R $(id -u):$(id -g) /gnu
+  389  sudo rmdir ${openssl_cert_dir}
+  390  sudo ln -s ${nss_cert_dir} ${openssl_cert_dir}
+  391  sudo ln -s ${nss_cert_file} ${openssl_cert_file}
+  405  print "Installing the Command Line Interface shortcut (needs sudo or root permissions)."
+  442  sudo mkdir -p /usr/local/bin/
+  444  printf "#!" | sudo tee /usr/local/bin/metacall > /dev/null
+  445  echo "${CMD_SHEBANG}" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  447  echo "export LOADER_LIBRARY_PATH=\"${cli}/lib\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  448  echo "export SERIAL_LIBRARY_PATH=\"${cli}/lib\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  449  echo "export DETOUR_LIBRARY_PATH=\"${cli}/lib\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  450  echo "export PORT_LIBRARY_PATH=\"${cli}/lib\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  451  echo "export CONFIGURATION_PATH=\"${cli}/configurations/global.json\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  452  echo "export LOADER_SCRIPT_PATH=\"\${LOADER_SCRIPT_PATH:-\`pwd\`}\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  454  echo "export SSL_CERT_DIR=\"/gnu/etc/ssl/certs\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  455  echo "export SSL_CERT_FILE=\"/gnu/etc/ssl/certs/ca-certificates.crt\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  456  echo "export GIT_SSL_FILE=\"/gnu/etc/ssl/certs/ca-certificates.crt\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  457  echo "export GIT_SSL_CAINFO=\"/gnu/etc/ssl/certs/ca-certificates.crt\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  458  echo "export CURL_CA_BUNDLE=\"/gnu/etc/ssl/certs/ca-certificates.crt\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  460  echo "export GUIX_LOCPATH=\"/gnu/lib/locale\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  461  echo "export LANG=\"en_US.UTF-8\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  463  echo "export PYTHONPATH=\"${pythonpath_base}:${pythonpath_dynlink}\"" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  465  echo "CMD=\`ls -a /gnu/bin | grep \"\$1\" | head -n 1\`" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  466  echo "if [ \"\${CMD}\" = \"\$1\" ]; then" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  467  echo "if [ -z \"\${PATH-}\" ]; then export PATH=\"/gnu/bin\"; else PATH=\"/gnu/bin:\${PATH}\"; fi" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  468  echo "\$@" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  469  echo "exit \$?" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  470  echo "fi" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  472  echo "${cli}/metacallcli \$@" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  473  sudo chmod 755 /usr/local/bin/metacall
+  520  print "Installing the Command Line Interface shortcut (needs sudo or root permissions)."
+  529  sudo mkdir -p /usr/local/bin/
+  530  echo "${CMD_SHEBANG}" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  531  echo "${command}" | sudo tee -a /usr/local/bin/metacall > /dev/null
+  532  sudo chmod 755 /usr/local/bin/metacall
+  548  sudo rm -rf /usr/local/bin/metacall || true
+  549  sudo rm -rf /gnu || true
+  627  echo "export PATH=\"\${PATH}:/usr/local/bin\"" | sudo tee /etc/profile.d/metacall.sh > /dev/null
+  628  sudo mkdir -p /etc/profile.d/
+  629  sudo chmod 644 /etc/profile.d/metacall.sh
+  649  history | grep sudo
+  650  history | grep sudo | less
+  651  history | grep "sudo chmod
+  652  history | grep "sudo chmod"
+  653  history | grep "sudo chmod" | 50
+  654  history | grep "sudo chmod" | less | 50
+  655  history | grep "sudo chmod" | less
+  659  history | grep sudo
+  660  history | grep sudo > commands.txt
