@@ -1,4 +1,5 @@
 # Bash-Vim-editor-Commands
 ---------------------------
 Some Vim and Bash Commands.
-Not only Vim but also user permission commands aswell.
+<br>
+Not only Vim but also user permission commands for Linux Administrator as well.
